@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Test </title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<title> Blog </title>
 </head>
 <body>
-<p>It works!</p>
+{% for post in posts %}
+	<div>
+		<p>Дата публикации: {{ post.published_date }} </p>
+		<h1><a href="">{{ post.title }}</a></h1>
+		<p>{{ post.text | linebreaksbr }}</p>
+<!-- linebreaksbr проганяет текст через фильтр для преобразования переносов строк в праграфы -->
+	</div>
+{% endfor %}
 </body>
 </html>
